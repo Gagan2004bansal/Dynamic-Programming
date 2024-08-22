@@ -48,7 +48,6 @@ int LCSusingTabu(int n, int m, string str1, string str2){
     return dp[n][m];
 }
 int main(){
-    cout << "Longest Common Subsequence" << endl;
     string str1;
     cin >> str1;
     string str2;
