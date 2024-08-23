@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-string PrintLCS(string str1, string str2){
+int solve(string str1, string str2){
     int n = str1.length();
     int m = str2.length();
 
@@ -17,32 +17,13 @@ string PrintLCS(string str1, string str2){
         }
     }
 
-
-    string ans = "";
-    int i = n, j = m;
-    while(i > 0 && j > 0){
-        if(str1[i-1] == str2[j-1]){
-            ans += str1[i-1];
-            i--; 
-            j--;
-        }
-        else if(dp[i][j-1] < dp[i-1][j]){
-            i--;
-        }
-        else{
-            j--;
-        }
-    }
-
-    reverse(ans.begin(), ans.end());
-    return ans;
+    return (n + m - 2 * dp[n][m]);
 }
 int main(){
     
     string str1, str2;
     cin >> str1 >> str2;
 
-    cout << PrintLCS(str1 , str2) << endl;
-
+    cout << solve(str1, str2) << endl;
     return 0;
 }
